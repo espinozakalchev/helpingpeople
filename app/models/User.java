@@ -3,30 +3,55 @@ package models;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
  * User: sushil
  * Date: 6/8/13
  * Time: 11:44 AM
- * To change this template use File | Settings | File Templates.
  */
 
 @Entity
 public class User extends Model {
+    private String username;
     private String email;
     private String password;
     private String firstName;
     private String lastName;
-    private boolean isAdmin;
-    private String dob;
+    //private boolean isAdmin;
+    private Date dateOfBirth;
     private String phone;
     private String occupation;
     private String description;
 
+    public User(String username, String email, String password, String firstName, String lastName, Date dateOfBirth, String phone, String occupation, String description) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.phone = phone;
+        this.occupation = occupation;
+        this.description = description;
+        create();
+    }
 
-    public User(){
+    public String getUsername() {
+        return username;
+    }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getEmail() {
@@ -59,22 +84,6 @@ public class User extends Model {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
-
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
     }
 
     public String getPhone() {
