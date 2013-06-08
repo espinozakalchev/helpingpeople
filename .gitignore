@@ -2,8 +2,12 @@
 .settings/
 .classpath
 .project
-/tmp
-/modules
-/lib
-/test-result
-/logs
+tmp
+tmp/
+modules
+lib
+test-result
+logs
+Helping\ People.iml
+Helping\ People.ipr
+Helping\ People.iws
