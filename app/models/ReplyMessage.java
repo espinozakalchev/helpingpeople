@@ -1,5 +1,7 @@
 package models;
 
+import play.db.jpa.Model;
+
 /**
  * Created with IntelliJ IDEA.
  * User: sushil
@@ -11,7 +13,7 @@ package models;
 /*
  * Message in reply to "I Can"
  */
-public class ReplyMessage {
+public class ReplyMessage extends Model {
     private CanPost post;
     private User sender;
     private User replier;

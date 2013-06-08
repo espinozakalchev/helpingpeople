@@ -12,7 +12,7 @@ import java.util.Date;
  */
 
 @Entity
-public class CanPost {
+public class CanPost extends Post {
     private String description;
     private User user;
     private Date createdDate;

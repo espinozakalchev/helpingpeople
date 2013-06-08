@@ -11,7 +11,7 @@ import javax.persistence.Entity;
  */
 
 @Entity
-public class NeedPost {
+public class NeedPost extends Post {
 
     public NeedPost(){
 
