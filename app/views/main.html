@@ -1,18 +1,180 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>#{get 'title' /}</title>
-        <meta charset="${_response_encoding}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-        #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-        #{get 'moreScripts' /}
-    </head>
-    <body>
-    	hdfssakjf
-    	<br/>
-        #{doLayout /}
-    </body>
+<head>
+	<title>#{get 'title' /}</title>
+	<meta charset="utf-8">
+   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/bootstrap.css'}" />
+	<link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/style.css'}" />
+#{get 'moreStyles' /}
+	
+	<link rel="shortcut icon" type="image/png"
+		href="@{'/public/images/favicon.png'}">
+	
+	<script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+	<script src="@{'/public/javascripts/bootstrap.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+	<script type="text/javascript">
+		window.onscroll = function() {
+			if (window.XMLHttpRequest) {
+				if (document.documentElement.scrollTop > 100
+						|| self.pageYOffset > 100) {
+					document.getElementById('post-control-bar').style.position = 'fixed';
+					document.getElementById('post-control-bar').style.top = '0';
+					document.getElementById('post-control-bar').style.width = '940px';
+				} else if (document.documentElement.scrollTop < 100
+						|| self.pageYOffset < 100) {
+					document.getElementById('post-control-bar').style.position = 'relative';
+					document.getElementById('post-control-bar').style.top = '';
+				}
+			}
+		}
+	</script>
+	
+	#{get 'moreScripts' /}
+</head>
+<body>
+	<div class="container">
+		<div class="masthead" >
+			<table style="width: 100%;"><tr>
+				<td style="width: 35%;">
+					<a href="/" class="homeButton" ><img class="homeButton" src="public/images/logo.png" /></a>
+				</td>
+	
+				<td style="width: 35%;"> 
+					<p class="headerText">
+						We are the community of active and open minded people who
+						believe in mutual aid and volunteering.<br /> Join us and together
+						we will make our world a better place, help others for
+						free and meet fantastic people!
+					</p>
+				</td>
+				<td style="width: 30%;"><div class="mustheadMid" >
+					<ul class="nav nav-pills pull-right" >
+						<li class="active"><a href="#">Log In</a></li>
+						<li ><a href="#">Sign up</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</div></td>
+			</tr></table>
+		</div>
+				
+		<div id="post-control-bar" class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+	
+	<div class="row-fluid">
+		<div class="span2">
+			<div class="well sidebar-nav">
+				 <ul class="nav nav-list">
+	              <li class="nav-header">Sidebar</li>
+	              <li class="active"><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li class="nav-header">Sidebar</li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li class="nav-header">Sidebar</li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	        	</ul>
+			</div>
+		</div>
+		
+		
+      <div class="span8">
+		#{doLayout /}
+      </div>
+      
+ 	<div class="span2">
+		<img src="public/images/ad120.png" />
+		<br />
+		<br />
+		<img src="public/images/ad120.png" />
+	</div>
+	</div>
+
+
+    
+
+      <div class="footer">
+      	<div class="span3" >
+        	<p>&copy; helpingpeople 2013</p>
+        </div>
+        <div class="span2" >
+        	<ul class="navplain">
+	        	<li><a  href="/">About us</a></li>
+	        	<li><a  href="/">Terms of Use</a></li>
+	        	<li><a href="/">Privacy</a></li>
+        	</ul>
+        </div>
+		<div class="span2">
+			<ul class="navplain">
+				<li><a href="/">Help</a></li>
+				<li><a href="/">Developers</a></li>
+			</ul>
+		</div>
+
+	</div>
+		<!-- 
+		<div class="header">
+			<span class="header-text">
+				<h1>
+					We are the community of active and open minded people<br /> who
+					believe in mutual aid and volunteering.<br /> Join us and togher
+					we will make our world a better place,<br /> help others for
+					free and meet fantastic people!
+				</h1>
+			</span>
+		</div>
+
+		<div class="middle">
+
+			<div class="navigation-left">
+				<span class="orange-text"> <b>My proflie<br /> My
+						Helping History<br /> My referencies<br />
+				</b>
+				</span>
+			</div>
+
+			<div class="center-column">
+				<div class="navigation-top">
+					<p style="text-align: center;">Top navigation goes here</p>
+				</div>
+				<div class="content">
+					<p style="text-align: center;">Content goes here</p>
+					#{doLayout /}
+				</div>
+			</div>
+
+			<div class="ads">
+				<p style="text-align: center;">Adds go here</p>
+			</div>
+
+		</div>
+
+		<div class="footer">Footer with our links</div>
+
+	</div>
+	 -->
+	</div>
+</body>
 </html>
