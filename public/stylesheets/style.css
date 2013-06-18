@@ -274,11 +274,18 @@
 	text-decoration: none;
 }
 
-a.lead_special:hover,
-a.lead_special:focus {
+a.violet-text:hover,
+a.violet-text:focus {
   color:#993399;
   text-decoration: underline;
 }
+
+a.orange-text:hover,
+a.orange-text:focus {
+  color:#ff6000;
+  text-decoration: underline;
+}
+
  /*
 #container { 
 	width:950px;
