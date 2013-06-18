@@ -1,0 +1,46 @@
+#{extends 'main.html' /} #{set title:'Create new Post' /}
+
+
+<h2>Create your new Post</h2>
+<hr>
+
+#{form @Posts.create(), enctype:'multipart/form-data'}
+	<div class="row-fluid">
+	<div class="span6" >
+	<label for="test1">
+	  <input id="test1" name="isICanPost" type="radio" value="true" required="required" />
+	  <img src="@{'public/images/ican.png'}" />
+	</label>
+	</div>
+	<div class="span6" >
+	<label for="test2">
+	    <input id="test2" name="isICanPost" type="radio" value="false" required="required" />
+	    <img src="@{'public/images/ineed.png'}" />
+	</label>
+	</div>
+	
+	</div>
+	
+	<div >
+	<span>
+		<label for="postImage">Image: </label>
+		<input accept="image/*" type="file" name="image" id="postImage" />
+	</span>
+	<span>
+		<label for="postTitle">Post Title: </label>
+		<input class="span6" type="text" name="title" id="postTitle" placeholder="Your Post Title" required="required" />
+	</span>
+	<span>
+		<label class="code" for="postDescription">Post Description: </label>
+		<textarea class="span8" name="description" id="postDescription" required="required" placeholder="Your Post Description"></textarea>
+	</span>
+	
+	<span>
+		<label></label>
+		<input type="submit" class="btn btn-large btn-success" value="Create Post" />
+	</span>
+	</div>
+#{/}
+
+ <div id="paddding" style="padding-top: 50px"><br/></div>
+

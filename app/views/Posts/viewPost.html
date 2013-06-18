@@ -1,0 +1,157 @@
+#{extends 'main.html' /} #{set title:post.title /}
+
+
+
+<div style="padding:25px 8% 20px 12%">
+	<div class="post_div" >
+<div class="row-fluid" >
+	<div class="span8" style="float:right;">
+		#{if post.isNeedPost() == true} <img src="@{'public/images/ineed.png'}" />
+		#{/if} 
+		#{if post.isCanPost() == true} <img src="@{'public/images/ican.png'}" />
+		#{/if}
+		
+	</div>
+	<div class="span4" style="padding-top: 85px;">
+		<table>
+			<tbody align="left">
+				<tr>
+					<td align="left" style="width: 53px;">
+					
+					<img alt=''
+						src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'
+						height='50' width='50' />
+					</td>
+					<td class="post_comment_head" valign="bottom">
+						<div class="orange_post"> Your Name <br /> 
+						Your Surname </div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div style="color:#8f8f8f; padding-top: 3px">${post.createdDate.format('dd MMMM yyyy HH:mm')}</div>
+	</div>
+</div>
+<div style="padding-top: 50px;">
+	<p class="lead_post orange_post">
+		${post.title}
+	</p>
+	
+	<p class="lead_post orange_post">
+		<img class="post_image" src="${post.getImagePath()}" />
+	</p>
+	
+	<br /><br />
+	<p>
+		${post.description}
+	</p>
+	</div>
+	
+	
+	<div style="padding-top: 15px">
+		<div class="span2"></div>
+		<input type="submit" class="btn btn-huge btn-success" value="Contact" />
+	</div>
+	</div>
+<hr />
+<div id="comments">
+	<h3>Comments on the post: </h3>
+
+<div class="comment_outer">
+	<div class="row-fluid">
+		<div class="post_comment" style="padding-bottom: 15px">
+			<table>
+			<tbody> 
+			<tr>
+			<th align="left" width="70px" >
+				<img alt=''
+			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='50' width='50' /> 
+			</th>
+			<th class="post_comment_head">
+			Your Name <br />
+			Your Surname <br /><br />
+			</th>
+			</tr>
+			<tr>
+			<td></td>
+			<td width="84%">
+			#{form @Posts.postComment(post.id,postComment), enctype:'multipart/form-data'}
+		<textarea style="width:100%;" name="comment" id="postComment" required="required" placeholder="Write your comment here." ></textarea>
+			<div style="float:right;"><input type="submit" class="btn btn-success" value="Comment" /></div>
+			#{/}
+			</td>
+			</tr>
+			</tbody>
+			
+			</table>
+		</div>
+	</div>
+	</div>
+
+#{list items:post.comments, as:'comment'}
+	<div class="comment_outer">
+	<div class="row-fluid">
+		<div class="post_comment">
+			<table>
+			<tbody> 
+			<tr>
+			<th align="left" width="70px" >
+				<img alt=''
+			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='50' width='50' /> 
+			</th>
+			<th class="post_comment_head">
+			Name <br />
+			Surname <br /><br />
+			<p style="color: #8f8f8f">${comment.postedOn.format('dd MMMM yyyy HH:mm')}</p>
+			</th>
+			</tr>
+			<tr>
+			<td></td>
+			<td>
+				<p>${comment.comment}</p>
+			</td>
+			</tr>
+			</tbody>
+			
+			</table>
+		</div>
+	</div>
+	</div>
+#{/list}
+<!-- 
+	<div class="comment_outer">
+		<div class="row-fluid">
+		<div class="post_comment">
+			<table>
+			<tbody> 
+			<tr>
+			<th align="left" width="70px" >
+				<img alt=''
+			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='50' width='50' /> 
+			</th>
+			<th class="post_comment_head">
+			Name <br />
+			Surname <br /><br />
+			<time style="color: #8f8f8f" pubdate datetime="2013-03-23T17:15:33+00:00">March 23, 2012 at 17:15</time>
+			</th>
+			</tr>
+			<tr>
+			<td></td>
+			<td>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Suspendisse venenatis dui vitae nisl convallis molestie. Duis at
+						metus a lorem accumsan mattis. Phasellus sed iaculis velit. Duis
+						risus libero, tristique tempus mollis vel, lacinia vel eros. Fusce
+						pulvinar risus id urna lacinia egestas.</p>
+			</td>
+			</tr>
+			</tbody>
+			
+			</table>
+		</div>
+	</div>
+	</div>
+ -->
+</div>
+</div>
+

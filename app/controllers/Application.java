@@ -10,7 +10,9 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
-        render();
+		List<CanPost> canPosts = CanPost.find("from CanPost order by createdDate desc").fetch();
+		List<NeedPost> needPosts = NeedPost.find("from NeedPost order by createdDate desc").fetch();
+		render(canPosts, needPosts);
     }
 
 }
