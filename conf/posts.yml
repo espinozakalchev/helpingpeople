@@ -1,0 +1,9 @@
+CanPost(post1):
+    description: This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description.
+    title: My First Can post title
+    createdDate: 2013-03-31
+    
+CanPost(post2):
+    description: This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description.
+    title: My Second Can post title
+    createdDate: 2013-03-31
