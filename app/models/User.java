@@ -1,8 +1,15 @@
 package models;
 
+import play.data.validation.Email;
+import play.data.validation.Equals;
+import play.data.validation.Required;
+import play.data.validation.Unique;
 import play.db.jpa.Model;
+import play.libs.Crypto;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
 /**
@@ -14,8 +21,18 @@ import java.util.Date;
 
 @Entity
 public class User extends Model {
+    @Unique
+    @Required
+    @Column(unique = true)
     private String username;
+
+    @Email
+    @Unique
+    @Required
+    @Column(unique = true)
     private String email;
+
+    @Required
     private String password;
     private String firstName;
     private String lastName;
@@ -25,10 +42,10 @@ public class User extends Model {
     private String occupation;
     private String description;
 
-    public User(String username, String email, String password, String firstName, String lastName, Date dateOfBirth, String phone, String occupation, String description) {
+    public User(@Required @Unique String username,@Required @Email String email,@Required String password,@Required @Equals("password") String confirmPassword, String firstName, String lastName, Date dateOfBirth, String phone, String occupation, String description) {
         this.username = username;
         this.email = email;
-        this.password = password;
+        this.password = new Crypto().encryptAES(password);
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -67,7 +84,7 @@ public class User extends Model {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = new Crypto().encryptAES(password);
     }
 
     public String getFirstName() {

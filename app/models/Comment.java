@@ -9,6 +9,7 @@ package models;
  */
 public class Comment {
 
+    private Post post;
     private User commenter;
 
 }

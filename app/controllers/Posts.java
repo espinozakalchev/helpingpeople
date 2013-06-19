@@ -9,17 +9,16 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 
+import models.*;
 import org.apache.commons.io.IOUtils;
 
-import models.CanPost;
-import models.NeedPost;
-import models.Post;
-import models.PostComment;
 import models.Post.PostType;
 import play.mvc.Controller;
 import play.mvc.Http;
+import play.mvc.With;
 import play.mvc.results.Result;
 
+@With(Secure.class)
 public class Posts extends Controller {
 
 	public static void index() {
@@ -38,10 +37,11 @@ public class Posts extends Controller {
 
 	public static void create(boolean isICanPost, File image, String title, String description) {
 		Post post;
+        User user = User.find("byUsername", Security.connected()).first();
 		if (isICanPost)
-			post = new CanPost(title, description, null, new Date());
+			post = new CanPost(title, description, user, new Date());
 		else 
-			post = new NeedPost(title, description, null, new Date());
+			post = new NeedPost(title, description, user, new Date());
 
 
 
