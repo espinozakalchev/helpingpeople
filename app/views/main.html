@@ -52,9 +52,16 @@
 				</td>
 				<td style="width: 30%;"><div class="mustheadMid" >
 					<ul class="nav nav-pills pull-right" >
-						<li class="active"><a href="#">Log In</a></li>
+                        #{if session.username}
+                        <li class="active"><a href="/secure/logout">Log Out</a></li>
+                        <li><a href="#">Contact</a></li>
+                        #{/if}
+                        #{else}
+						<li class="active"><a href="/secure/login">Log In</a></li>
 						<li ><a href="#">Sign up</a></li>
 						<li><a href="#">Contact</a></li>
+                        #{/else}
+
 					</ul>
 				</div></td>
 			</tr></table>

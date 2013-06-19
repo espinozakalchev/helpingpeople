@@ -16,4 +16,8 @@ public class Security extends Secure.Security {
         return user !=null && user.getPassword().equals(new Crypto().encryptAES(password));
     }
 
+    public static void onDisconnected() {
+        Application.index();
+    }
+
 }
