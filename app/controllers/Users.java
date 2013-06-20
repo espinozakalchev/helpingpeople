@@ -10,6 +10,8 @@ import play.mvc.With;
 
 import java.util.Date;
 
+import static controllers.Security.*;
+
 /**
  * Created with IntelliJ IDEA.
  * User: sushil
@@ -24,14 +26,15 @@ public class Users extends Controller {
         /*
          * If the user is already signed in, redirect to Index page
          */
-        if(Security.isConnected()){
+        if(isConnected()){
             Application.index();
         } else {
             render();
         }
     }
     public static void create(String username, String email, String password, String confirmPassword, String firstName, String lastName, Date dateOfBirth, String phone, String occupation, String description){
-        new User(username, email, password, confirmPassword, firstName, lastName, dateOfBirth, null, null, null);
+        new User(username, email, password, confirmPassword, firstName, lastName, new Date(), null, null, null);
+        session.put("username", username);
         Application.index();
     }
 }

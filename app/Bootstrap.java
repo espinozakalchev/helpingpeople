@@ -11,7 +11,9 @@ import java.util.Date;
 public class Bootstrap extends Job {
 
 	public void doJob() {
-        User user = new User("administrator","admin@helpingpeople.com","password","password", "Admin","admin",new Date(),"123","Developer","Nothing much");
+        if(User.find("byUsername","administrator").first() == null){
+            new User("administrator","admin@helpingpeople.com","password","password", "Admin","admin",new Date(),"123","Developer","Nothing much");
+        }
         if (CanPost.count() == 0)
 			Fixtures.loadModels("posts.yml");
 
