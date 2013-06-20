@@ -21,7 +21,14 @@ import java.util.Date;
 public class Users extends Controller {
 
     public static void signup(){
+        /*
+         * If the user is already signed in, redirect to Index page
+         */
+        if(Security.isConnected()){
+            Application.index();
+        }
         render();
+
     }
     public static void create(@Required @Unique String username,@Required @Email String email,@Required String password,@Required @Equals("password") String confirmPassword, String firstName, String lastName, Date dateOfBirth, String phone, String occupation, String description){
         new User(username, email, password, confirmPassword, firstName, lastName, dateOfBirth, null, null, null);
