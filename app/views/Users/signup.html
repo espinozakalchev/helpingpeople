@@ -5,7 +5,7 @@
 
 <div class = "spacer"></div>
 
-#{form @Users.create(), enctype:'multipart/form-data'}
+#{form @Users.create()}
 
 <div class = "registration_form">
     <div class = "form_info">
@@ -13,9 +13,9 @@
         All fields are mandatory, except those marked 'Optional'.
         </div>
         <div class = "spacer"></div>
-        <div>
+        <!-- <div>
             Optional field 'Birthday' is marked with a plus (+)
-        </div>
+        </div> -->
         <div class = "spacer"></div>
         <div>
         You can add other personal information like your photo, occupation, interests etc. later from your profile page.
@@ -25,32 +25,32 @@
     <div class = "form_content">
     <span>
 		<label for="firstName">First Name: </label>
-		<input type="text" name="firstName" id="firstName" />
+		<input type="text" name="firstName" id="firstName" required="required" maxlength="20" />
 	</span>
 
 	<span>
 		<label for="lastName">Last Name: </label>
-		<input type="text" name="lastName" id="lastName" />
+		<input type="text" name="lastName" id="lastName" required="required" maxlength="20" />
 	</span>
 
     <span>
 		<label for="email">Email: </label>
-		<input type="text" name="email" id="email" />
+		<input type="text" name="email" id="email" required="required" maxlength="40" />
 	</span>
 
     <span>
 		<label for="username">Username: </label>
-		<input type="text" name="username" id="username" />
+		<input type="text" name="username" id="username" required="required" maxlength="20" />
 	</span>
 
     <span>
 		<label for="password">Password: </label>
-		<input type="text" name="password" id="password" />
+		<input type="password" name="password" id="password" required="required" maxlength="20" />
 	</span>
 
     <span>
 		<label for="confirmPassword">Confirm Password: </label>
-		<input type="text" name="confirmPassword" id="confirmPassword" />
+		<input type="password" name="confirmPassword" id="confirmPassword" required="required" maxlength="20" />
 	</span>
 
     <div class = "signup_info">
