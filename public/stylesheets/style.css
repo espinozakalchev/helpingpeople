@@ -321,7 +321,7 @@ a.orange-text:focus {
     font-size : 12px;
 }
 
-.helpingpeople_form #submitButton {
+.helpingpeople_form #submitButton, .helpingpeople_form #signin{
     position: relative;
     top : 32px;
     width : 85px; /*Default*/
@@ -339,6 +339,14 @@ a.orange-text:focus {
 
 }
 
+.helpingpeople_form .form_info .forgot_password_div {
+    margin-top:100px;
+    margin-left:-40px;
+}
+.helpingpeople_form .form_info .forgot_password {
+    text-decoration:underline;
+}
+
 .mustheadMid .nav a, .mustheadMid .nav li.active a:hover{
      color : #fff;
 }
@@ -346,6 +354,28 @@ a.orange-text:focus {
      color : #0088CC;
 }
 
+.welcome_text {
+    font-weight : bold;
+    padding:0px 10px 0px 10px;
+}
+
+#remember-field input {
+    float : left;
+}
+#remember-field label{
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+.error {
+    color : #f00;
+
+}
+
+label {
+    font-family : "Comic Sans MS", cursive;
+
+}
  /*
 #container { 
 	width:950px;

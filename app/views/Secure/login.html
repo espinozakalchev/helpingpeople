@@ -6,17 +6,32 @@
 <div class = "spacer"></div>
 #{form @authenticate()}
 <div class = "helpingpeople_form">
+    <div class = "form_info">
+        <div class = "forgot_password_div"><a class = "forgot_password" href = "#">Forgotten your password?</a></div>
+    </div>
     <div class = "form_content">
-        <span>
-            <label for="username">Username: </label>
-            <input type="text" name="username" id="username" required="required" maxlength="20" />
+
+
+        #{if flash.error}
+        <p class="error">
+            &{flash.error}
+        </p>
+        #{/if}
+
+        <span id="username-field">
+            <label for="username">&{'secure.username'} </label>
+            <input type="text" name="username" id="username" required="required" value="${flash.username}" maxlength="20" />
         </span>
-        <span>
-            <label for="password">Password: </label>
+        <span id="password-field">
+            <label for="password">&{'secure.password'}</label>
             <input type="password" name="password" id="password" required="required" maxlength="20" />
         </span>
+        <span id="remember-field">
+            <input type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />
+            <label for="remember">&{'secure.remember'}</label>
+        </span>
         <span>
-		    <input  id = "submitButton" type="submit" class="btn btn-large btn-success" value="Login" />
+		    <input  id = "signin" type="submit" class="btn btn-large btn-success" value="&{'secure.signin'}" />
 	    </span>
     </div>
 </div>
