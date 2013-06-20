@@ -1,0 +1,65 @@
+#{extends 'main.html' /} #{set title:'Registration' /}
+<div class = "page_title"> <h2>Sign Up</h2>
+<div class = "registration_slogan">We are very happy to welcome you in our family!</div>
+</div>
+
+<div class = "spacer"></div>
+
+#{form @Users.create(), enctype:'multipart/form-data'}
+
+<div class = "registration_form">
+    <div class = "form_info">
+        <div>
+        All fields are mandatory, except those marked 'Optional'.
+        </div>
+        <div class = "spacer"></div>
+        <div>
+            Optional field 'Birthday' is marked with a plus (+)
+        </div>
+        <div class = "spacer"></div>
+        <div>
+        You can add other personal information like your photo, occupation, interests etc. later from your profile page.
+        </div>
+    </div>
+
+    <div class = "form_content">
+    <span>
+		<label for="firstName">First Name: </label>
+		<input type="text" name="firstName" id="firstName" />
+	</span>
+
+	<span>
+		<label for="lastName">Last Name: </label>
+		<input type="text" name="lastName" id="lastName" />
+	</span>
+
+    <span>
+		<label for="email">Email: </label>
+		<input type="text" name="email" id="email" />
+	</span>
+
+    <span>
+		<label for="username">Username: </label>
+		<input type="text" name="lastName" id="username" />
+	</span>
+
+    <span>
+		<label for="password">Password: </label>
+		<input type="text" name="password" id="password" />
+	</span>
+
+    <span>
+		<label for="confirmPassword">Confirm Password: </label>
+		<input type="text" name="confirmPassword" id="confirmPassword" />
+	</span>
+
+    <div class = "signup_info">
+        By clicking Signup, you agree to our <a href = "#">Terms of Service</a> and that you have read our <a href = "#"> Data privacy policy.</a>
+
+    </div>
+	<span>
+		<input  id = "submitButton" type="submit" class="btn btn-large btn-success" value="Signup" />
+	</span>
+    </div>
+</div>
+#{/}

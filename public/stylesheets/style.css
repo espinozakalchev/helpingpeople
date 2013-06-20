@@ -286,6 +286,59 @@ a.orange-text:focus {
   text-decoration: underline;
 }
 
+.spacer {
+    height:20px;
+}
+
+.registration_slogan {
+    color: #777;
+    font-size:13px;
+    line-height:10px;
+}
+
+.page_title {
+    padding-left:40px;
+    color: #993399;
+}
+
+.registration_form {
+    border:1px solid #777;
+    padding:30px 10px 10px 40px;
+    border-radius:30px;
+    margin-bottom : 60px;
+    background-color : #f4eaf4;
+}
+
+.registration_form .form_content span{
+    color : #555;
+}
+
+.registration_form .form_content input {
+    width : 300px;
+}
+
+.signup_info {
+    font-size : 12px;
+}
+
+.registration_form #submitButton {
+    position: relative;
+    top : 32px;
+    width : 85px; /*Default*/
+}
+
+.registration_form .form_content {
+    width : 315px;
+}
+.registration_form .form_info {
+    float : right;
+    width : 160px;
+    margin-right : 35px;
+    color : #993399;
+    font-size : 13px;
+
+}
+
  /*
 #container { 
 	width:950px;

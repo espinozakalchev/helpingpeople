@@ -53,13 +53,13 @@
 				<td style="width: 30%;"><div class="mustheadMid" >
 					<ul class="nav nav-pills pull-right" >
                         #{if session.username}
-                        <li class="active"><a href="/secure/logout">Log Out</a></li>
-                        <li><a href="#">Contact</a></li>
+                            <li class="active"><a href="/secure/logout">Log Out</a></li>
+                            <li><a href="#">Contact</a></li>
                         #{/if}
                         #{else}
-						<li class="active"><a href="/secure/login">Log In</a></li>
-						<li ><a href="#">Sign up</a></li>
-						<li><a href="#">Contact</a></li>
+                            <li class="active"><a href="/secure/login">Log In</a></li>
+                            <li ><a href="/users/signup">Sign up</a></li>
+                            <li><a href="#">Contact</a></li>
                         #{/else}
 
 					</ul>
