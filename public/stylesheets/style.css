@@ -339,6 +339,13 @@ a.orange-text:focus {
 
 }
 
+.mustheadMid .nav a, .mustheadMid .nav li.active a:hover{
+     color : #fff;
+}
+.mustheadMid .nav a:hover{
+     color : #0088CC;
+}
+
  /*
 #container { 
 	width:950px;
