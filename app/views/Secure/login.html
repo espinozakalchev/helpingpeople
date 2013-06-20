@@ -1,0 +1,23 @@
+#{extends 'main.html' /} #{set title:'Registration' /}
+<div class = "page_title"> <h2>Login</h2>
+    <div class = "heading_helper_text">Still don't have a profile? <a href = "/users/signup">Create one now</a></div>
+</div>
+
+<div class = "spacer"></div>
+#{form @authenticate()}
+<div class = "helpingpeople_form">
+    <div class = "form_content">
+        <span>
+            <label for="username">Username: </label>
+            <input type="text" name="username" id="username" required="required" maxlength="20" />
+        </span>
+        <span>
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" required="required" maxlength="20" />
+        </span>
+        <span>
+		    <input  id = "submitButton" type="submit" class="btn btn-large btn-success" value="Login" />
+	    </span>
+    </div>
+</div>
+#{/form}
