@@ -26,11 +26,11 @@ public class Users extends Controller {
          */
         if(Security.isConnected()){
             Application.index();
+        } else {
+            render();
         }
-        render();
-
     }
-    public static void create(@Required @Unique String username,@Required @Email String email,@Required String password,@Required @Equals("password") String confirmPassword, String firstName, String lastName, Date dateOfBirth, String phone, String occupation, String description){
+    public static void create(String username, String email, String password, String confirmPassword, String firstName, String lastName, Date dateOfBirth, String phone, String occupation, String description){
         new User(username, email, password, confirmPassword, firstName, lastName, dateOfBirth, null, null, null);
         Application.index();
     }
