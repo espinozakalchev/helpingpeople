@@ -1,9 +1,52 @@
+User(francesca):
+    username: francesca
+    email: francesca@gmail.com
+    password: francesca
+    firstName: Francesca
+    lastName: Virelli
+    dateOfBirth: 1988-03-31
+    phone: 012345678
+    occupation: Student
+    description: I am a student of history and arts and love travelling.
+User(mark):
+    username: mark
+    email: mark@gmail.com
+    password: mark
+    firstName: Mark
+    lastName: Johnson
+    dateOfBirth: 1986-03-31
+    phone: 012345679
+    occupation: Hairdresser
+    description: I like fashion and design 
+User(tom):
+    username: tom
+    email: tom@gmail.com
+    password: tom
+    firstName: Tom
+    lastName: Brown
+    dateOfBirth: 1986-06-18
+    phone: 012345679
+    occupation: Software engineer
+    description: I am a bit freaky but quite nice :) 
 CanPost(post1):
-    description: This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description.
-    title: My First Can post title
+    description: I love to discover new things about the city and would like to share it with other people. I organize city tours and guide people through hidden and underappreciated streets and corners of this beautiful city. If you would like to see the city from completely other side and meet new people, come and join me!
+    title: Munich city tour
     createdDate: 2013-03-31
-    
+    user: francesca   
 CanPost(post2):
-    description: This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description.
-    title: My Second Can post title
+    description: I am taking a course to become a hairdresser and would like to find models I can improve my skills on!
+    title: Would you like to have a new hair cut?
     createdDate: 2013-03-31
+    user: mark
+NeedPost(needPost1):
+    description: I would like to improve my Spanish skills. Could anyone help me and practice the language with me?
+    title: Spanish lessons
+    createdDate: 2013-05-31
+    user: francesca
+NeedPost(needPost2):
+    description: I will be out of town for the weekend and I need someone to look after my dog Walle. It is smart, very kind and charming.
+    title: A weekend with my lovely labrador Walle 
+    createdDate: 2013-06-10
+    user: tom
+
+    
