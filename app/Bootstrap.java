@@ -18,8 +18,7 @@ public class Bootstrap extends Job {
         }
         if (CanPost.count() == 0){
             try {
-                Fixtures.deleteAllModels();
-			    Fixtures.loadModels("posts.yml");
+                Fixtures.loadModels("posts.yml");
                 List<CanPost> canposts = CanPost.findAll();
                 for(CanPost canpost : canposts){
                     canpost.setUser(user);
