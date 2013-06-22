@@ -4,7 +4,6 @@ User(francesca):
     password: francesca
     firstName: Francesca
     lastName: Virelli
-    dateOfBirth: 1988-03-31
     phone: 012345678
     occupation: Student
     description: I am a student of history and arts and love travelling.
@@ -14,7 +13,6 @@ User(mark):
     password: mark
     firstName: Mark
     lastName: Johnson
-    dateOfBirth: 1986-03-31
     phone: 012345679
     occupation: Hairdresser
     description: I like fashion and design 
@@ -24,7 +22,6 @@ User(tom):
     password: tom
     firstName: Tom
     lastName: Brown
-    dateOfBirth: 1986-06-18
     phone: 012345679
     occupation: Software engineer
     description: I am a bit freaky but quite nice :) 
