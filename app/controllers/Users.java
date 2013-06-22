@@ -1,22 +1,15 @@
 package controllers;
 
 import models.User;
-import play.data.validation.Email;
-import play.data.validation.Equals;
-import play.data.validation.Required;
-import play.data.validation.Unique;
 import play.mvc.Controller;
-import play.mvc.With;
 
 import java.util.Date;
 
-import static controllers.Security.*;
+import static controllers.Security.isConnected;
 
 /**
  * Created with IntelliJ IDEA.
  * User: sushil
- * Date: 6/19/13
- * Time: 10:44 PM
  * To change this template use File | Settings | File Templates.
  */
 
@@ -32,9 +25,31 @@ public class Users extends Controller {
             render();
         }
     }
-    public static void create(String username, String email, String password, String confirmPassword, String firstName, String lastName, Date dateOfBirth, String phone, String occupation, String description){
-        new User(username, email, password, confirmPassword, firstName, lastName, new Date(), null, null, null);
-        session.put("username", username);
+
+    public static void create(String username, String email, String password, String confirmPassword, String firstName, String lastName, String phone, String occupation, String description){
+        boolean valid = true;
+        String errors="";
+        if(User.find("byUsername",username).first() !=  null){
+            errors="Username already exists<br/>";
+            valid=false;
+        }
+        if(User.find("byEmail",email).first() != null){
+            errors+="Email already exists<br/>";
+            valid=false;
+        }
+        if(!password.equals(confirmPassword)){
+            errors+="Password and Confirm password do not match<br/>";
+            valid=false;
+        }
+
+        if(valid){
+            new User(username, email, password, confirmPassword, firstName, lastName, null, null, null);
+            session.put("username", username); //Sign in the user, automatically, after successful registration
+        } else {
+            flash.error(errors);
+            signup(); // redirect to signup page again on error
+        }
+
         Application.index();
     }
 }

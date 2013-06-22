@@ -1,6 +1,8 @@
 import models.User;
 import org.junit.Test;
 import play.libs.Crypto;
+import play.mvc.Before;
+import play.test.Fixtures;
 import play.test.UnitTest;
 
 import java.util.Date;
@@ -16,16 +18,21 @@ public class UserTest extends UnitTest {
 
     @Test
     public void createUserTest(){
-        new User("tumuser", "tumuser@tum.de", "pass", "pass", "Tum", "Garching", (new Date()), "123456", "", "");
+        new User("tumuser", "tumuser@tum.de", "pass", "pass", "Tum", "Garching",  "123456", "", "");
         User user = User.find("byUsername","tumuser").first();
         assertNotNull(user);
+        assertEquals("tumuser", user.getUsername());
         assertEquals("tumuser@tum.de", user.getEmail());
+        assertEquals(new Crypto().encryptAES("pass"), user.getPassword());
+        assertEquals("Tum",user.getFirstName());
+        assertEquals("Garching",user.getLastName());
+
     }
 
     @Test
     public void uniqueUserTest(){
         try{
-            new User("tumuser", "tumuser@tum.de", "pass", "pass", "Tum", "Garching", (new Date()), "123456", "", "");
+            new User("tumuser", "tumuser@tum.de", "pass", "pass", "Tum", "Garching", "123456", "", "");
         } catch (Exception JdbcSQLException){
             // Do Nothing
         }
@@ -37,7 +44,6 @@ public class UserTest extends UnitTest {
     public void updateUserTest(){
         User oldUser = User.find("byUsername","tumuser").first();
         oldUser.setPassword("pass3");
-        oldUser.save();
 
         User user = User.find("byUsername","tumuser").first();
         assertEquals(new Crypto().encryptAES("pass3"), user.getPassword());

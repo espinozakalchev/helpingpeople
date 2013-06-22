@@ -8,6 +8,11 @@
 #{form @Users.create()}
 
 <div class = "helpingpeople_form">
+    #{if flash.error}
+    <p class="error">
+        &{flash.error}
+    </p>
+    #{/if}
     <div class = "form_info">
         <div>
         All fields are mandatory, except those marked 'Optional'.
@@ -25,22 +30,22 @@
     <div class = "form_content">
     <span>
 		<label for="firstName">First Name: </label>
-		<input type="text" name="firstName" id="firstName" required="required" maxlength="20" />
+		<input type="text" name="firstName" id="firstName" required="required" placeholder="Your First Name" maxlength="20" />
 	</span>
 
 	<span>
 		<label for="lastName">Last Name: </label>
-		<input type="text" name="lastName" id="lastName" required="required" maxlength="20" />
+		<input type="text" name="lastName" id="lastName" required="required" placeholder="Your Last Name" maxlength="20" />
 	</span>
 
     <span>
 		<label for="email">Email: </label>
-		<input type="email" name="email" id="email" required="required" maxlength="40" />
+		<input type="email" name="email" id="email" required="required" placeholder="Your valid email address" maxlength="40" />
 	</span>
 
     <span>
 		<label for="username">Username: </label>
-		<input type="text" name="username" id="username" required="required" maxlength="20" />
+		<input type="text" name="username" id="username" required="required" placeholder="Enter desired username" maxlength="20" />
 	</span>
 
     <span>
@@ -50,7 +55,7 @@
 
     <span>
 		<label for="confirmPassword">Confirm Password: </label>
-		<input type="password" name="confirmPassword" id="confirmPassword" required="required" maxlength="20" />
+		<input type="password" name="confirmPassword" id="confirmPassword" required="required" placeholder="Enter password again" maxlength="20" />
 	</span>
 
     <div class = "signup_info">

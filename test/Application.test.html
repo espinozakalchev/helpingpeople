@@ -1,0 +1,16 @@
+
+#{selenium 'Test signup page'}
+open('/users/signup')
+assertTextPresent('Sign')
+#{/selenium}
+
+#{selenium 'Test user login'}
+        open('/secure/login')
+        assertTextPresent('Login')
+        assertTextPresent('Username')
+        type('username','administrator')
+        type('password','password')
+        clickAndWait('signin')
+        assertTextPresent('Logout');
+#{/selenium}
+

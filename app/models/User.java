@@ -36,23 +36,24 @@ public class User extends Model {
     private String password;
     private String firstName;
     private String lastName;
-    //private boolean isAdmin;
-    private Date dateOfBirth;
     private String phone;
     private String occupation;
     private String description;
 
-    public User(@Required @Unique String username,@Required @Email String email,@Required String password,@Required @Equals("password") String confirmPassword, String firstName, String lastName, Date dateOfBirth, String phone, String occupation, String description) {
+    public User(@Required @Unique String username,@Required @Email String email,@Required String password,@Required @Equals("password") String confirmPassword, String firstName, String lastName, String phone, String occupation, String description) {
         this.username = username;
         this.email = email;
         this.password = new Crypto().encryptAES(password);
         this.firstName = firstName;
         this.lastName = lastName;
-        this.dateOfBirth = dateOfBirth;
         this.phone = phone;
         this.occupation = occupation;
         this.description = description;
-        create();
+        try {
+            create();
+        } catch (Exception e){
+            //error handling
+        }
     }
 
     public String getUsername() {
@@ -61,14 +62,6 @@ public class User extends Model {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
     }
 
     public String getEmail() {
