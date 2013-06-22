@@ -17,36 +17,13 @@ import java.util.Date;
 public class UserTest extends UnitTest {
 
     @Test
-    public void createUserTest(){
-        new User("tumuser", "tumuser@tum.de", "pass", "pass", "Tum", "Garching",  "123456", "", "");
-        User user = User.find("byUsername","tumuser").first();
+    public void userTest(){
+        User user = new User("tumuser", "tumuser@tum.de", "pass", "pass", "Tum", "Garching",  "123456", "", "");
         assertNotNull(user);
         assertEquals("tumuser", user.getUsername());
         assertEquals("tumuser@tum.de", user.getEmail());
         assertEquals(new Crypto().encryptAES("pass"), user.getPassword());
         assertEquals("Tum",user.getFirstName());
         assertEquals("Garching",user.getLastName());
-
     }
-
-    @Test
-    public void uniqueUserTest(){
-        try{
-            new User("tumuser", "tumuser@tum.de", "pass", "pass", "Tum", "Garching", "123456", "", "");
-        } catch (Exception JdbcSQLException){
-            // Do Nothing
-        }
-        int count = User.find("byUsername","tumuser").fetch().size();
-        assertEquals(1,count);
-    }
-
-    @Test
-    public void updateUserTest(){
-        User oldUser = User.find("byUsername","tumuser").first();
-        oldUser.setPassword("pass3");
-
-        User user = User.find("byUsername","tumuser").first();
-        assertEquals(new Crypto().encryptAES("pass3"), user.getPassword());
-    }
-
 }

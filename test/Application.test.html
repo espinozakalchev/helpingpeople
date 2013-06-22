@@ -14,3 +14,8 @@ assertTextPresent('Sign')
         assertTextPresent('Logout');
 #{/selenium}
 
+
+#{selenium 'Test user logout'}
+    open('/secure/logout')
+    assertTextPresent('Log In');
+#{/selenium}

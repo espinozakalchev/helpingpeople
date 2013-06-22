@@ -88,10 +88,9 @@ public class Posts extends Controller {
 	public static void postComment(Long postId, String comment) {
 		Post post = Post.findById(postId);
 
-		System.err.println(postId);
-		System.err.println(comment);
-		
-		new PostComment(null, post, comment);
+		//User user = User.find("byUsername",Security.connected()).first();
+
+        new PostComment(null, post, comment);
 		viewPost(postId);
 	}
 }

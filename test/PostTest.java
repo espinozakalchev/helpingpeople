@@ -1,6 +1,5 @@
 import models.CanPost;
-import models.Post;
-import models.User;
+import models.NeedPost;
 import org.junit.Test;
 import play.test.UnitTest;
 
@@ -14,14 +13,18 @@ public class PostTest extends UnitTest {
 
     @Test
     public void createCanPostTest(){
-        User user = User.find("byUsername", "administrator").first();
-        CanPost canpost = new CanPost("My I can post", "My description", user, new Date());
-        long id=canpost.getId();
 
-        CanPost retrievedCanpost = CanPost.findById(id);
-        assertEquals("My I can post", retrievedCanpost.getTitle());
-        assertEquals("My description", retrievedCanpost.getDescription());
-        assertEquals(user,retrievedCanpost.getUser());
+        CanPost canpost = new CanPost("My I can post", "My description", null, new Date());
 
+        assertEquals("My I can post", canpost.getTitle());
+        assertEquals("My description", canpost.getDescription());
+    }
+
+    @Test
+    public void createNeedPostTest(){
+        NeedPost needpost = new NeedPost("My I Need post", "My description", null, new Date());
+
+        assertEquals("My I Need post", needpost.getTitle());
+        assertEquals("My description", needpost.getDescription());
     }
 }
