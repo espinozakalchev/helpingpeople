@@ -100,8 +100,8 @@
 			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='50' width='50' /> 
 			</th>
 			<th class="post_comment_head">
-			Name <br />
-			Surname <br /><br />
+			${comment.user.firstName} <br />
+			${comment.user.lastName} <br /><br />
 			<p style="color: #8f8f8f">${comment.postedOn.format('dd MMMM yyyy HH:mm')}</p>
 			</th>
 			</tr>
@@ -118,40 +118,6 @@
 	</div>
 	</div>
 #{/list}
-<!-- 
-	<div class="comment_outer">
-		<div class="row-fluid">
-		<div class="post_comment">
-			<table>
-			<tbody> 
-			<tr>
-			<th align="left" width="70px" >
-				<img alt=''
-			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='50' width='50' /> 
-			</th>
-			<th class="post_comment_head">
-			Name <br />
-			Surname <br /><br />
-			<time style="color: #8f8f8f" pubdate datetime="2013-03-23T17:15:33+00:00">March 23, 2012 at 17:15</time>
-			</th>
-			</tr>
-			<tr>
-			<td></td>
-			<td>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Suspendisse venenatis dui vitae nisl convallis molestie. Duis at
-						metus a lorem accumsan mattis. Phasellus sed iaculis velit. Duis
-						risus libero, tristique tempus mollis vel, lacinia vel eros. Fusce
-						pulvinar risus id urna lacinia egestas.</p>
-			</td>
-			</tr>
-			</tbody>
-			
-			</table>
-		</div>
-	</div>
-	</div>
- -->
 </div>
 </div>
 

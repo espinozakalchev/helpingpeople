@@ -1,16 +1,19 @@
 package models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+
 import play.data.validation.Email;
 import play.data.validation.Equals;
 import play.data.validation.Required;
 import play.data.validation.Unique;
 import play.db.jpa.Model;
 import play.libs.Crypto;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -39,7 +42,11 @@ public class User extends Model {
     private String phone;
     private String occupation;
     private String description;
-
+    
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
+	@OrderBy(value="createdDate DESC")
+    private List<Post> posts;
+    
     public User(@Required @Unique String username,@Required @Email String email,@Required String password,@Required @Equals("password") String confirmPassword, String firstName, String lastName, String phone, String occupation, String description) {
         this.username = username;
         this.email = email;
@@ -119,4 +126,12 @@ public class User extends Model {
     public void setDescription(String description) {
         this.description = description;
     }
+    
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
 }

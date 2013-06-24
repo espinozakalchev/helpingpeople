@@ -11,7 +11,7 @@
 #{get 'moreStyles' /}
 	
 	<link rel="shortcut icon" type="image/png"
-		href="@{'/public/images/favicon.png'}">
+		href="@{'/public/images/ineedfav.png'}">
 	
 	<script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
 	<script src="@{'/public/javascripts/bootstrap.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
@@ -73,7 +73,10 @@
               <ul class="nav">
                 <li class="active"><a href="/">Home</a></li>
                 <li><a href="@{Posts.allPosts()}">See All</a></li>
+               #{if session.username}
+                <li><a href="@{Posts.myPosts()}">My Posts</a></li>
                 <li><a href="@{Posts.createNewPost()}">Create New</a></li>
+               #{/if}
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
               </ul>
@@ -88,6 +91,7 @@
                      <ul class="nav nav-list">
                       <li class="nav-header">Posts</li>
                     <li><a href="@{Posts.allPosts()}">See All</a></li>
+                    <li><a href="@{Posts.myPosts()}">My Posts</a></li>
                     <li><a href="@{Posts.createNewPost()}">Create New</a></li>
 
                       <li class="nav-header">Sidebar</li>

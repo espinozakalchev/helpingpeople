@@ -30,6 +30,11 @@ CanPost(post1):
     title: Munich city tour
     createdDate: 2013-03-31
     user: francesca   
+CanPost(post1a):
+    description: This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description.
+    title: My First Can post title
+    createdDate: 2013-03-08
+    user: tom
 CanPost(post2):
     description: I am taking a course to become a hairdresser and would like to find models I can improve my skills on!
     title: Would you like to have a new hair cut?
@@ -46,4 +51,3 @@ NeedPost(needPost2):
     createdDate: 2013-06-10
     user: tom
 
-    

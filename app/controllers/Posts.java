@@ -5,18 +5,21 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import models.*;
+import models.CanPost;
+import models.NeedPost;
+import models.Post;
+import models.Post.PostType;
+import models.PostComment;
+import models.User;
+
 import org.apache.commons.io.IOUtils;
 
-import models.Post.PostType;
 import play.mvc.Controller;
-import play.mvc.Http;
 import play.mvc.With;
-import play.mvc.results.Result;
 
 @With(Secure.class)
 public class Posts extends Controller {
@@ -32,6 +35,23 @@ public class Posts extends Controller {
 	public static void allPosts() {
 		List<CanPost> canPosts = CanPost.find("from CanPost order by createdDate desc").fetch();
 		List<NeedPost> needPosts = NeedPost.find("from NeedPost order by createdDate desc").fetch();
+		render(canPosts, needPosts);
+	}
+	
+	public static void myPosts() {
+		User user = User.find("byUsername", Security.connected()).first();
+		List<Post> posts = user.getPosts();
+		List<CanPost> canPosts = new ArrayList<CanPost>();
+		List<NeedPost> needPosts = new ArrayList<NeedPost>();
+		
+		for (Post p: posts)  {
+			if (p.getPostType() == PostType.CanPost)
+				canPosts.add((CanPost) p);
+			else {
+				needPosts.add((NeedPost) p);
+			}
+		}
+		
 		render(canPosts, needPosts);
 	}
 
@@ -74,7 +94,6 @@ public class Posts extends Controller {
 				catch (IOException e) {}
 			}
 		}
-		System.err.println("created post: " + id);
 		
 		viewPost(id);
 	}
@@ -88,9 +107,9 @@ public class Posts extends Controller {
 	public static void postComment(Long postId, String comment) {
 		Post post = Post.findById(postId);
 
-		//User user = User.find("byUsername",Security.connected()).first();
+		User user = User.find("byUsername",Security.connected()).first();
 
-        new PostComment(null, post, comment);
+        new PostComment(user, post, comment);
 		viewPost(postId);
 	}
 }

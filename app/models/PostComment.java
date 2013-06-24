@@ -8,13 +8,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import net.sf.oval.constraint.Length;
 import net.sf.oval.constraint.NotEmpty;
 import net.sf.oval.constraint.NotNull;
 import play.db.jpa.Model;
 
 @Entity
 public class PostComment extends Model {
+	
+	@ManyToOne
 	private User user;
 	
 	@ManyToOne
