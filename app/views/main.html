@@ -90,8 +90,12 @@
 		<div class="span2">
             #{if session.username}
                 <div class="well sidebar-nav">
-                     <ul class="nav nav-list">
-                      <li class="nav-header">Posts</li>
+                  <ul class="nav nav-list">
+                    <li class="nav-header">Profile</li>
+                    <li><a href="@{Profile.index()}">My Profile</a></li>
+                    <li><a href="#">My References</a></li>
+                    
+                    <li class="nav-header">Posts</li>
                     <li><a href="@{Posts.allPosts()}">See All</a></li>
                     <li><a href="@{Posts.myPosts()}">My Posts</a></li>
                     <li><a href="@{Posts.createNewPost()}">Create New</a></li>
