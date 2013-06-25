@@ -1,0 +1,31 @@
+#{extends 'main.html' /} #{set title:'My Profile' /}
+<div class = "page_title"> <h2>My Profile</h2></div>
+
+#{if flash.error}<p class="error">&{flash.error}</p>#{/if}
+#{if flash.success}<p class="success">&{flash.success}</p>#{/if}
+
+<div class = "profile_view">
+    <div class = "picture">
+        <div> Picture</div>
+    </div>
+    
+    <div class = "form_content">
+    	<div>
+    		<span class="name"> ${user.firstName} ${user.lastName}</span>
+    		<span class="editlink">[<a href="edit">Edit</a>] &nbsp;[<a href="changePassword">Change password</a>]</span>
+    	</div>
+		<div>
+    		<span> Email : </span> ${user.email}
+    	</div>
+		<div>
+    		<span> Phone Number : </span> ${user.phone}
+    	</div>
+		<div>
+    		<span> Occupation : </span> ${user.occupation}
+    	</div>
+    	<div>
+    		<span>About myself : </span> 
+    		<div> ${user.description}</div>
+    	</div>
+    </div>
+</div>

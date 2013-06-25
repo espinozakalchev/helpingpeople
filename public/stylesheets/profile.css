@@ -1,0 +1,40 @@
+
+.profile_view {
+    border:2px solid #993399;
+    padding:20px 10px 10px 20px;
+    border-radius:30px;
+    margin-bottom : 30px;
+    /*background-color : #f4eaf4;*/
+}
+
+.profile_view .form_content {
+    width : 315px;
+}
+
+.profile_view .picture {
+    float : right;
+    width : 160px;
+    margin-right : 20px;
+    color : #993399;
+    font-size : 13px;
+}
+
+.profile_view .form_content span
+{
+	color : #993399;
+	width : 50px;
+}
+
+.profile_view .form_content .name
+{
+	color : #993399;
+	font-size : 20px;
+	font-weight: bold;
+	line-height: 45px;
+}
+
+.profile_view .form_content .editlink
+{
+	color : #993399;
+	padding-left : 20px;
+}

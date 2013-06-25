@@ -1,0 +1,49 @@
+#{extends 'main.html' /} #{set title:'My Profile' /}
+<div class = "page_title"> <h2>Edit - My Profile</h2></div>
+
+	#{if flash.error}<p class="error">&{flash.error}</p>#{/if}
+    #{if flash.success}<p class="success">&{flash.success}</p>#{/if}
+
+
+#{form @Profile.save(user.id,firstName,lastName,email,phone,occupation,description), enctype:'multipart/form-data'}
+<div class = "profile_view">
+    <div class = "picture">
+        <div> Picture</div>
+    </div>
+    <div class = "form_content">
+    <span>
+		<label for="firstName">First Name: </label>
+		<input type="text" name="firstName" id="firstName" value="${user.firstName}" required="required" maxlength="20" />
+	</span>
+
+	<span>
+		<label for="lastName">Last Name: </label>
+		<input type="text" name="lastName" id="lastName" value="${user.lastName}" required="required" maxlength="20" />
+	</span>
+
+    <span>
+		<label for="email">Email: </label>
+		<input type="email" name="email" id="email" value="${user.email}" required="required" maxlength="40" />
+	</span>
+
+   <span>
+		<label for="phone">Phone Number: </label>
+		<input type="text" name="phone" id="phone" value="${user.phone}" required="required" maxlength="20" />
+	</span>
+	
+	<span>
+		<label for="occupation">Occupation: </label>
+		<input type="text" name="occupation" id="occupation" value="${user.occupation}" required="required" maxlength="20" />
+	</span>
+	
+	<span>
+		<label for="description">About myself: </label>
+		<textarea name="description" id="description" style="width:100%;" >${user.description}</textarea>
+	</span>
+
+    <span>
+		<input  id = "submitButton" type="submit" class="btn btn-large btn-success" value="Save" />
+	</span>
+    </div>
+</div>
+#{/}
