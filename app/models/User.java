@@ -150,28 +150,24 @@ public class User extends Model {
 
 	@Transient
 	public String getPhotoPath() {
-		String path = String.format(
-				"public/user/%d", this.getId());
 		
+		String path = String.format(
+			"public/user/%d", this.getId());
+	
 		File dir = new File(path);
-		if (dir != null && dir.isDirectory()) {
+		if (dir != null && dir.isDirectory()) 
 			return "/".concat(path).concat("/").concat(this.getPhoto());
-		}
-		return path;
-	}	
+		
+		return null;
+	}
 	
 	@Transient
 	public boolean hasPhoto() {
-		String path = String.format(
-				"public/user/%d", this.getId());
 		
-		File dir = new File(path);
-		if (dir != null && dir.isDirectory()) {
-			 File[] images = dir.listFiles();
-			 return images.length > 0;
-		}
+		if(this.getPhoto() == null)
+			return false;
 		
-		return false;
+		return true;
 	}
 
 }
