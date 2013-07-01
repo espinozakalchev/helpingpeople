@@ -1,5 +1,6 @@
 package models;
 
+import java.io.File;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -7,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
+import javax.persistence.Transient;
 
 import play.data.validation.Email;
 import play.data.validation.Equals;
@@ -42,6 +44,8 @@ public class User extends Model {
     private String phone;
     private String occupation;
     private String description;
+    private String photo;
+    
     
 	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	@OrderBy(value="createdDate DESC")
@@ -134,4 +138,40 @@ public class User extends Model {
 	public void setPosts(List<Post> posts) {
 		this.posts = posts;
 	}
+	
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	
+	public String getPhoto() {
+		return photo;
+		
+	}
+
+	@Transient
+	public String getPhotoPath() {
+		String path = String.format(
+				"public/user/%d", this.getId());
+		
+		File dir = new File(path);
+		if (dir != null && dir.isDirectory()) {
+			return "/".concat(path).concat("/").concat(this.getPhoto());
+		}
+		return path;
+	}	
+	
+	@Transient
+	public boolean hasPhoto() {
+		String path = String.format(
+				"public/user/%d", this.getId());
+		
+		File dir = new File(path);
+		if (dir != null && dir.isDirectory()) {
+			 File[] images = dir.listFiles();
+			 return images.length > 0;
+		}
+		
+		return false;
+	}
+
 }

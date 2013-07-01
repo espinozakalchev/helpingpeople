@@ -1,0 +1,20 @@
+#{extends 'main.html' /} #{set title:'My Profile' /}
+<div class = "page_title"> <h2>Photo - My Profile</h2></div>
+
+	#{if flash.error}<p class="error">&{flash.error}</p>#{/if}
+    #{if flash.success}<p class="success">&{flash.success}</p>#{/if}
+     
+#{form @Profile.savePhoto(), enctype:'multipart/form-data'}
+<div class = "profile_view">
+    <div class = "form_content">
+    <span>
+		<label for="postImage">Select Profile Picture: </label>
+		<input accept="image/*" type="file" name="image"required="required" id="postImage" />
+	</span>
+	<div style="margin-top:20px;"></div>
+    <div>
+		<input  id = "submitButton" type="submit" class="btn btn-large btn-success" value="Upload" />
+	</div>
+    </div>
+</div>
+#{/}

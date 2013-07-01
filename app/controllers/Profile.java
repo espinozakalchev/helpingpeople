@@ -5,7 +5,14 @@ import play.libs.Crypto;
 import play.mvc.Controller;
 import play.mvc.With;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Date;
+
+import org.apache.commons.io.IOUtils;
 
 import static controllers.Security.isConnected;
 
@@ -80,5 +87,56 @@ public class Profile extends Controller {
             changePassword(); // redirect to change password page again on error
         }
     }
+    
+    // update photo  
+    public static void changePhoto(){
+        render();
+    }
+    
+   // save photo  
+    public static void savePhoto(File image){
+        
+    	User user = User.find("byUsername", Security.connected()).first();
+        long id = user.getId();
+        
+    	String successMsg = "";
+
+		if (image != null) {
+			File dir = new File(String.format("public/user/%d", id));
+			dir.mkdirs();
+			File copy = new File(dir, image.getName());
+
+			FileInputStream in = null;
+			FileOutputStream out = null;
+			try {
+				in = new FileInputStream(image);
+				out = new FileOutputStream(copy);
+				IOUtils.copy(in, out);
+				successMsg += "Photo has uploaded successfully";
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			finally {
+				try {
+					if (in != null)
+						in.close();
+					if (out != null)
+						out.close();
+				} 
+				catch (IOException e) {}
+			}
+		}
+        
+		// save photo location
+		user.setPhoto(image.getName());
+		user.save();
+		
+		flash.success(successMsg);
+		index(); // redirect to profile page
+    }
+    
+    
     
 }
