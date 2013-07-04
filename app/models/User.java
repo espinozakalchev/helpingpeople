@@ -50,6 +50,10 @@ public class User extends Model {
 	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	@OrderBy(value="createdDate DESC")
     private List<Post> posts;
+	
+	@OneToMany(mappedBy="toUser") 
+	@OrderBy(value="date DESC")
+	List<Reference> receivedReferences; 
     
     public User(@Required @Unique String username,@Required @Email String email,@Required String password,@Required @Equals("password") String confirmPassword, String firstName, String lastName, String phone, String occupation, String description) {
         this.username = username;

@@ -381,6 +381,23 @@ label {
     font-family : "Comic Sans MS", cursive;
 
 }
+
+.reference_list_entry_outer {
+ 	padding: 30px 0 0 0;
+}
+
+.reference_list_entry {
+	-webkit-border-radius: 16px;
+	-moz-border-radius: 16px;
+	border-radius: 16px;
+	
+	vertical-align:bottom;
+	min-height: 100px;
+	padding: 15px 15px 0px 15px;
+	
+	border: 2px solid #ff6000;
+ }
+
  /*
 #container { 
 	width:950px;
