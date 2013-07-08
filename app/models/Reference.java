@@ -15,9 +15,9 @@ import play.db.jpa.Model;
 @Entity
 public class Reference extends Model{
 	
-	@ManyToOne
+	@ManyToOne(targetEntity=User.class)
 	private User fromUser; // user who is writing a reference
-	@ManyToOne
+	@ManyToOne(targetEntity=User.class)
 	private User toUser; // user the reference is written for
 	@NotEmpty
 	private String referenceText;		

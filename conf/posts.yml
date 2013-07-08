@@ -50,10 +50,14 @@ NeedPost(needPost2):
     title: A weekend with my lovely labrador Walle 
     createdDate: 2013-06-10
     user: tom
-Reference(ref1):
-fromUser: mark
-toUser: tom
-referenceText: reference here we go
-date: 2013-03-31
- 
 
+Reference(ref2):
+    fromUser: mark
+    toUser: tom
+    referenceText: some text
+    date: 2013-06-10
+Reference(ref1):
+    fromUser: mark
+    toUser: tom
+    referenceText: some text number 2
+    date: 2013-06-10
