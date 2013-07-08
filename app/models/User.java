@@ -26,7 +26,9 @@ import play.libs.Crypto;
 
 @Entity
 public class User extends Model {
-    @Unique
+    
+
+	@Unique
     @Required
     @Column(unique = true)
     private String username;
@@ -150,6 +152,14 @@ public class User extends Model {
 	public String getPhoto() {
 		return photo;
 		
+	}
+	
+	public List<Reference> getReceivedReferences() {
+		return receivedReferences;
+	}
+
+	public void setReceivedReferences(List<Reference> receivedReferences) {
+		this.receivedReferences = receivedReferences;
 	}
 
 	@Transient
