@@ -14,7 +14,8 @@ import static controllers.Security.isConnected;
  * User: sushil
  * To change this template use File | Settings | File Templates.
  */
-@With(Secure.class)
+
+//@With(Secure.class)
 public class Users extends Controller {
 
     public static void signup(){
