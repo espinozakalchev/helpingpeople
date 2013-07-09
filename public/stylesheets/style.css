@@ -397,6 +397,16 @@ label {
 	
 	border: 2px solid #ff6000;
  }
+ 
+ .about_div {
+ 
+	border: 1px solid #993399;
+	-webkit-border-radius: 16px;
+	-moz-border-radius: 16px;
+	border-radius: 16px;
+	
+	padding: 10px 15px 35px 15px;
+ }
 
  /*
 #container { 
