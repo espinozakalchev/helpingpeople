@@ -2,6 +2,7 @@ package controllers;
 
 import models.Post;
 import models.User;
+import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -15,7 +16,6 @@ import static controllers.Security.isConnected;
  * To change this template use File | Settings | File Templates.
  */
 
-//@With(Secure.class)
 public class Users extends Controller {
 
     public static void signup(){
@@ -55,9 +55,15 @@ public class Users extends Controller {
 
         Application.index();
     }
-    
+
     public static void viewUserProfile(Long userId) {
-    	
+    	if(!session.contains("username")) {
+            try {
+                Secure.login();
+            } catch (Throwable throwable) {
+                throwable.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
 		User user = User.findById(userId);
 		User loggedInUser = User.find("byUsername",Security.connected()).first();
 		render(user, loggedInUser);
