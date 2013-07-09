@@ -56,13 +56,12 @@
 					<ul class="nav nav-pills pull-right" >
                         #{if session.username}
                             <li class="active"><a href="/secure/logout">Log Out</a></li>
-                            <li><a href="/contact/index">Contact</a></li>
                         #{/if}
                         #{else}
                             <li class="active"><a href="/secure/login">Log In</a></li>
                             <li ><a href="/users/signup">Sign up</a></li>
-                            <li><a href="/contact/index">Contact</a></li>
                         #{/else}
+                        <li><a href="/contact">Contact</a></li>
 
 					</ul>
 				</div></td>
@@ -79,8 +78,8 @@
                 <li><a href="@{Posts.myPosts()}">My Posts</a></li>
                 <li><a href="@{Posts.createNewPost()}">Create New</a></li>
                #{/if}
-                <li><a href="/about/index">About</a></li>
-                <li><a href="/contact/index">Contact</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
               </ul>
             </div>
           </div>
@@ -137,9 +136,9 @@
         </div>
         <div class="span2" >
         	<ul class="navplain">
-	        	<li><a  href="/about/index">About us</a></li>
-	        	<li><a  href="/terms/index">Terms of Use</a></li>
-	        	<li><a href="/privacy/index">Privacy</a></li>
+	        	<li><a  href="/about">About us</a></li>
+	        	<li><a  href="/terms">Terms of Use</a></li>
+	        	<li><a href="/privacy">Privacy</a></li>
         	</ul>
         </div>
 		<div class="span2">

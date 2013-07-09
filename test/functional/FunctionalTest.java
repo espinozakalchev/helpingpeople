@@ -34,5 +34,13 @@ public class FunctionalTest extends play.test.FunctionalTest {
     }
 
 
+    @Test
+    public void testThatAboutPageWorks() {
+        Response response = GET("/about");
+        assertIsOk(response);
+        assertContentType("text/html", response);
+        assertCharset(play.Play.defaultWebEncoding, response);
+    }
+
 
 }
