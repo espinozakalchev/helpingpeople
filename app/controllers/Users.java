@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Post;
 import models.User;
 import play.mvc.Controller;
 
@@ -52,4 +53,10 @@ public class Users extends Controller {
 
         Application.index();
     }
+    
+    public static void viewUserProfile(Long userId) {
+		User user = User.findById(userId);
+		
+		render(user);
+	}
 }
