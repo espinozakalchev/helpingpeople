@@ -32,6 +32,12 @@ public class FunctionalTest extends play.test.FunctionalTest {
     }
 
     @Test
+    public void testThatUserProfilePageRedirectsToLoginPage() {
+        Response response = GET("/users/viewuserprofile?userId=1");
+        assertStatus(302, response);
+    }
+
+    @Test
     public void testThatSignupPageWorks() {
         Response response = GET("/users/signup");
         assertIsOk(response);

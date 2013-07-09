@@ -61,7 +61,7 @@ public class Users extends Controller {
             try {
                 Secure.login();
             } catch (Throwable throwable) {
-                throwable.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                throwable.printStackTrace();
             }
         }
 		User user = User.findById(userId);
