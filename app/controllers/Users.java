@@ -3,6 +3,7 @@ package controllers;
 import models.Post;
 import models.User;
 import play.mvc.Controller;
+import play.mvc.With;
 
 import java.util.Date;
 
@@ -13,7 +14,7 @@ import static controllers.Security.isConnected;
  * User: sushil
  * To change this template use File | Settings | File Templates.
  */
-
+@With(Secure.class)
 public class Users extends Controller {
 
     public static void signup(){
@@ -55,8 +56,9 @@ public class Users extends Controller {
     }
     
     public static void viewUserProfile(Long userId) {
+    	
 		User user = User.findById(userId);
-		
-		render(user);
+		User loggedInUser = User.find("byUsername",Security.connected()).first();
+		render(user, loggedInUser);
 	}
 }

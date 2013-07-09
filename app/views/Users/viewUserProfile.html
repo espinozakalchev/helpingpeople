@@ -13,16 +13,13 @@
 			<img width="120px" height="120px" src="${user.getPhotoPath()}" />
 		</span>
 		#{/if}
-		#{else}
-		 <span class="editlink">[<a href="changePhoto">Upload Picture</a>]</span>
-		#{/else}
+		
 		</div>
     </div>
     
     <div class = "form_content">
     	<div>
-    		<span class="name"> ${user.firstName} ${user.lastName}</span>
-    		<span class="editlink">[<a href="edit">Edit</a>] &nbsp;[<a href="changePassword">Change password</a>]</span>
+    		<span class="name"> </span>
     	</div>
 		<div>
     		<span> Email : </span> ${user.email}
@@ -41,6 +38,38 @@
 </div>	
 	<div id="references">
 	<h3>References: </h3>
+    #{if user.id!=loggedInUser.id}
+    <div class="comment_outer">
+	<div class="row-fluid">
+		<div class="post_comment" style="padding-bottom: 15px">
+			<table>
+			<tbody> 
+			<tr>
+			<th align="left" width="70px" >
+				<img alt=''
+			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='50' width='50' /> 
+			</th>
+			<th class="post_comment_head">
+			<a href="@{Users.viewUserProfile(loggedInUser.id)}">${loggedInUser.firstName} <br />
+			${loggedInUser.lastName} </a><br /><br />
+			</th>
+			</tr>
+			<tr>
+			<td></td>
+			<td width="84%">
+			#{form @References.submitReference(user.id,referenceText), enctype:'multipart/form-data'}
+		<textarea style="width:100%;" name="referenceText" id="referenceText" required="required" placeholder="Write your reference here." ></textarea>
+			<div style="float:right;"><input type="submit" class="btn btn-success" value="Add Reference" /></div>
+			#{/}
+			</td>
+			</tr>
+			</tbody>
+			
+			</table>
+		</div>
+	</div>
+	</div>
+    #{/if}
 		#{list items:user.receivedReferences, as:'reference'}
 			<div class="reference_list_entry_outer">
 				<div class="row-fluid">
@@ -71,5 +100,6 @@
 			</div>
 		#{/list}
 	</div>
+    <br /><br />
 	
 
