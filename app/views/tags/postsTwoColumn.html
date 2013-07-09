@@ -16,7 +16,7 @@
 			<td class="post_list_entry_head violet-text">
                 #{if can.user} <a href="@{Users.viewUserProfile(can.user.id)}" class="post_list_entry_head violet-text">${can.user.firstName} ${can.user.lastName}</a>
                 #{/if}<br />
-			<div style="color:#8f8f8f; padding-top: 3px">${can.createdDate.format('dd MMMM yyyy HH:mm')}</div>
+			<div style="color:#8f8f8f; padding-top: 3px; font-size: 75%">${can.createdDate.format('dd MMMM yyyy HH:mm')}</div>
 			</td>
 			</tr>
 			<tr>
@@ -67,7 +67,7 @@
 			<td class="post_list_entry_head orange-text">
                 #{if need.user} <a href="@{Users.viewUserProfile(need.user.id)}" class="post_list_entry_head orange-text" >${need.user.firstName} ${need.user.lastName}</a>
                 #{/if}<br />
-			<div style="color:#8f8f8f; padding-top: 3px">${need.createdDate.format('dd MMMM yyyy HH:mm')}</div>
+			<div style="color:#8f8f8f; padding-top: 3px; font-size: 75%">${need.createdDate.format('dd MMMM yyyy HH:mm')}</div>
 			</td>
 			</tr>
 			<tr>
