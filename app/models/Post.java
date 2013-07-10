@@ -1,33 +1,23 @@
 package models;
 
-import java.io.File;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
-import javax.persistence.Transient;
-
-import net.sf.oval.constraint.Length;
 import net.sf.oval.constraint.NotEmpty;
 import net.sf.oval.constraint.NotNull;
 import play.db.jpa.Model;
+import play.templates.JavaExtensions;
+
+import javax.persistence.*;
+import java.io.File;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="post_type")
 public abstract class Post extends Model {
-	@NotEmpty
+
+    @NotEmpty
 	private String title;
-	
+
 	@NotEmpty
 	@Lob
     private String description;
@@ -37,7 +27,7 @@ public abstract class Post extends Model {
 	
 	@NotNull
     private Date createdDate;
-    
+
 	@OneToMany(mappedBy="post", cascade=CascadeType.ALL)
 	@OrderBy(value="postedOn DESC")
     private List<PostComment> comments;
@@ -91,6 +81,16 @@ public abstract class Post extends Model {
 			
 		throw new RuntimeException("Unrecognized post type");
 	}
+
+    @Transient
+    public String getPostTypeString() {
+        if (this instanceof CanPost)
+            return String.valueOf(PostType.CanPost);
+        else if (this instanceof NeedPost)
+            return String.valueOf(PostType.NeedPost);
+
+        throw new RuntimeException("Unrecognized post type");
+    }
 	
 	@Transient
 	public String getImagePath() {
@@ -137,4 +137,9 @@ public abstract class Post extends Model {
 		CanPost,
 		NeedPost,
 	}
+
+    public static List<Post> search (String searchString) {
+        List<Post> posts = find("from Post post where LCASE(post.title) like ?1 or LCASE(post.description) like ?1 order by post.createdDate desc", JavaExtensions.noAccents("%"+searchString.toLowerCase()+"%")).fetch();
+        return posts;
+    }
 }

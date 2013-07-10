@@ -1,6 +1,8 @@
 #{extends 'main.html' /} #{set title:'Home' /}
 
-
+#{form @Search.index(), enctype:'multipart/form-data'}
+<div><input type = "text" id="query" name="query" class = "searchBox"> <input type="submit" class="btn btn-large btn-success" value="Search" /></div>
+#{/}
 #{postsTwoColumn canPosts:canPosts, needPosts:needPosts /}
 
  <div id="paddding" style="padding-top: 50px"><br/></div>

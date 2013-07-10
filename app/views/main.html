@@ -67,7 +67,7 @@
 				</div></td>
 			</tr></table>
 		</div>
-				
+
 		<div id="post-control-bar" class="navbar">
           <div class="navbar-inner">
             <div class="container">
@@ -77,6 +77,7 @@
                #{if session.username}
                 <li><a href="@{Posts.myPosts()}">My Posts</a></li>
                 <li><a href="@{Posts.createNewPost()}">Create New</a></li>
+                <li><a href="@{Search.index()}">Search</a></li>
                #{/if}
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
@@ -84,7 +85,7 @@
             </div>
           </div>
         </div><!-- /.navbar -->
-	
+
 	<div class="row-fluid">
 		<div class="span2">
             #{if session.username}
