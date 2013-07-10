@@ -18,13 +18,14 @@
 				<tr>
 					<td align="left" style="width: 53px;">
 					
-					<img alt=''
+					<!-- <img alt=''
 						src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'
-						height='50' width='50' />
+						height='50' width='50' /> -->
+						<img width="50" height="50" src="${post.user.getPhotoPath()}" />
 					</td>
 					<td class="post_comment_head" valign="bottom">
-						<div class="orange_post"> ${post.user.firstName} <br />
-                            ${post.user.lastName}  </div>
+						<div class="orange_post"> <a href="@{Users.viewUserProfile(post.user.id)}" class="post_list_entry_head orange-text" >${post.user.firstName} <br />
+                            ${post.user.lastName}</a>  </div>
 					</td>
 				</tr>
 			</tbody>
@@ -64,12 +65,14 @@
 			<tbody> 
 			<tr>
 			<th align="left" width="70px" >
-				<img alt=''
-			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='50' width='50' /> 
+				<!-- <img alt=''
+			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='50' width='50' />  -->
+			<img width="50" height="50" src="${loggedInUser.getPhotoPath()}" />
 			</th>
 			<th class="post_comment_head">
-			Your Name <br />
-			Your Surname <br /><br />
+			<a href="@{Users.viewUserProfile(loggedInUser.id)}">${loggedInUser.firstName} <br />
+			${loggedInUser.lastName}</a>
+			<br /><br />
 			</th>
 			</tr>
 			<tr>
@@ -96,12 +99,13 @@
 			<tbody> 
 			<tr>
 			<th align="left" width="70px" >
-				<img alt=''
-			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='50' width='50' /> 
+				<!-- <img alt=''
+			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='50' width='50' />  -->
+			<img width="50" height="50" src="${comment.user.getPhotoPath()}" />
 			</th>
 			<th class="post_comment_head">
-			${comment.user.firstName} <br />
-			${comment.user.lastName} <br /><br />
+			<a href="@{Users.viewUserProfile(comment.user.id)}">${comment.user.firstName} <br />
+			${comment.user.lastName}</a>
 			<p style="color: #8f8f8f">${comment.postedOn.format('dd MMMM yyyy HH:mm')}</p>
 			</th>
 			</tr>

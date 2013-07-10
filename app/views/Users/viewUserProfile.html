@@ -47,8 +47,9 @@
 			<tbody> 
 			<tr>
 			<th align="left" width="70px" >
-				<img alt=''
-			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='50' width='50' /> 
+				<!-- <img alt=''
+			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='50' width='50' /> --> 
+			<img width="50" height="50" src="${loggedInUser.getPhotoPath()}" />
 			</th>
 			<th class="post_comment_head">
 			<a href="@{Users.viewUserProfile(loggedInUser.id)}">${loggedInUser.firstName} <br />
@@ -79,8 +80,9 @@
 						<tbody>		
 							<tr>
 								<td align="left" width="50px" >
-									<img alt=''
-								src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='33' width='33' /> 
+									<!-- <img alt=''
+								src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='33' width='33' /> --> 
+								<img width="50" height="50" src="${reference.fromUser.getPhotoPath()}" />
 								</td>
 								<td class="post_list_entry_head orange-text">
 									<a href="@{Users.viewUserProfile(reference.fromUser.id)}" class="post_list_entry_head orange-text">${reference.fromUser.firstName} ${reference.fromUser.lastName}</a><br />

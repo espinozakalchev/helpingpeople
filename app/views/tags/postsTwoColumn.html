@@ -10,8 +10,10 @@
 			<tbody> 
 			<tr>
 			<td align="left" width="50px" >
-				<img alt=''
-			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='33' width='33' /> 
+				<!-- <img alt=''
+			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='33' width='33' /> --> 
+			#{if can.user}<img width="50" height="50" src="${can.user.getPhotoPath()}" />
+			#{/if}
 			</td>
 			<td class="post_list_entry_head violet-text">
                 #{if can.user} <a href="@{Users.viewUserProfile(can.user.id)}" class="post_list_entry_head violet-text">${can.user.firstName} ${can.user.lastName}</a>
@@ -61,8 +63,10 @@
 			<tbody> 
 			<tr>
 			<td align="left" width="50px" >
-				<img alt=''
-			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='33' width='33' /> 
+				<!-- <img alt=''
+			src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='33' width='33' /> --> 
+			#{if need.user}<img width="50" height="50" src="${need.user.getPhotoPath()}" />
+			#{/if}
 			</td>
 			<td class="post_list_entry_head orange-text">
                 #{if need.user} <a href="@{Users.viewUserProfile(need.user.id)}" class="post_list_entry_head orange-text" >${need.user.firstName} ${need.user.lastName}</a>

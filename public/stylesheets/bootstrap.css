@@ -671,7 +671,9 @@ p {
 }
 
 .orange_post {
+	font-family: 'Comic Sans MS', cursive;
 	color: #FF6600
+	
 }
 
 small {

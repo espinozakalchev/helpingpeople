@@ -100,8 +100,9 @@ public class Posts extends Controller {
 	
 	public static void viewPost(Long postId) {
 		Post post = Post.findById(postId);
+		User loggedInUser = User.find("byUsername",Security.connected()).first();
 		
-		render(post);
+		render(post,loggedInUser);
 	}
 	
 	public static void postComment(Long postId, String comment) {
