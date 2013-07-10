@@ -8,7 +8,7 @@
     <div class = "picture">
         <div>
         #{if user.hasPhoto()}
-        <span>[<a href="changePhoto">Change Picture</a>]</span>
+       <!--  <span>[<a href="changePhoto">Change Picture</a>]</span> -->
         <span>
 			<img width="120px" height="120px" src="${user.getPhotoPath()}" />
 		</span>
@@ -35,6 +35,7 @@
     		<div> ${user.description} </div>
     	</div>
     </div>
+    <br><br>
 </div>	
 	<div id="references">
 	<h3>References: </h3>
