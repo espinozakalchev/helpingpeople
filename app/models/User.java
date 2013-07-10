@@ -16,6 +16,7 @@ import play.data.validation.Required;
 import play.data.validation.Unique;
 import play.db.jpa.Model;
 import play.libs.Crypto;
+import play.templates.JavaExtensions;
 
 /**
  * Created with IntelliJ IDEA.

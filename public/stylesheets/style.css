@@ -408,6 +408,12 @@ label {
 	padding: 10px 15px 35px 15px;
  }
 
+.searchBox {
+    float:left;
+    width : 80%;
+    margin-right:5px;
+    margin-top:5px;
+}
  /*
 #container { 
 	width:950px;
