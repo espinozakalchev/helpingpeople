@@ -77,6 +77,23 @@ public class FunctionalTest extends play.test.FunctionalTest {
         assertContentType("text/html", response);
         assertCharset(play.Play.defaultWebEncoding, response);
     }
-
+    
+    @Test
+    public void testThatProfileViewPageWorks() {
+        Response response = GET("/profile/index");
+        assertStatus(302, response);
+    }
+    
+    @Test
+    public void testThatProfileEditPageWorks() {
+        Response response = GET("/profile/edit");
+        assertStatus(302, response);
+    }
+    
+    @Test
+    public void testThatProfileChangePasswordPageWorks() {
+        Response response = GET("/profile/changePassword");
+        assertStatus(302, response);
+    }
 
 }
