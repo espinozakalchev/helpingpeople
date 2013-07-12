@@ -40,7 +40,9 @@
     </div>
 </div>	
 	<div id="references">
-	<h3>References: </h3>
+	#{if user.receivedReferences.size() > 0 }
+	<h3  class="violet-text">References: </h3>
+	#{/if}
 		#{list items:user.receivedReferences, as:'reference'}
 			<div class="reference_list_entry_outer">
 				<div class="row-fluid">

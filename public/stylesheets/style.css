@@ -35,6 +35,13 @@
  	color: #000000;
  }
  
+ .loggedIn_user {
+  	font-size: 15px;
+ 	font-weight: bold;
+ 	line-height: 18px;
+ 	text-align:left;
+ }
+ 
  .comment_outer {
  	padding: 30px 0 0 0;
  }
@@ -388,7 +395,7 @@ label {
 }
 
 .reference_list_entry_outer {
- 	padding: 30px 0 0 0;
+ 	padding: 10px 0 20px 0;
 }
 
 .reference_list_entry {

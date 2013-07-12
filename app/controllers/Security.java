@@ -18,4 +18,11 @@ public class Security extends Secure.Security {
         Application.index();
     }
 
+    public static User getCurrentUser() {
+    	if (session.contains("username")) {
+    		return User.find("byUsername", session.get("username")).first();
+    	}
+    	
+    	return null;
+    }
 }

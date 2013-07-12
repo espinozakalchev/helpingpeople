@@ -89,6 +89,23 @@
 	<div class="row-fluid">
 		<div class="span2">
             #{if session.username}
+            	#{set currentUser:controllers.Security.getCurrentUser() /}
+            
+            <div style="padding-bottom: 15px" >
+			<table>
+			<tbody> 
+			<tr>
+			<th align="left" width="55px" >
+			<img width="50" height="50" src="${currentUser.getPhotoPath()}" />
+			</th>
+			<th class="loggedIn_user">
+			<a href="@{Profile.index()}" >${currentUser.firstName} <br />
+			${currentUser.lastName}</a>
+			</th>
+			</tr>
+			</tbody>
+			</table>
+            </div>
                 <div class="well sidebar-nav">
                   <ul class="nav nav-list">
                     <li class="nav-header">Profile</li>
