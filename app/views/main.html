@@ -25,10 +25,12 @@
 					document.getElementById('post-control-bar').style.position = 'fixed';
 					document.getElementById('post-control-bar').style.top = '0';
 					document.getElementById('post-control-bar').style.width = '940px';
+					document.getElementById('controlPadDiv').style.display='inherit';
 				} else if (document.documentElement.scrollTop <= 100
 						|| self.pageYOffset <= 100) {
-					document.getElementById('post-control-bar').style.position = 'relative';
+					document.getElementById('post-control-bar').style.position = 'static';
 					document.getElementById('post-control-bar').style.top = '';
+					document.getElementById('controlPadDiv').style.display='none';
 				}
 			}
 		}
@@ -68,7 +70,7 @@
 			</tr></table>
 		</div>
 
-		<div id="post-control-bar" class="navbar">
+		<div id="post-control-bar" class="navbar" >
           <div class="navbar-inner">
             <div class="container">
               <ul class="nav">
@@ -86,6 +88,8 @@
           </div>
         </div><!-- /.navbar -->
 
+	<div id="controlPadDiv" style="padding-top: 40px; display: none;"><br/></div>
+	
 	<div class="row-fluid">
 		<div class="span2">
             #{if session.username}
