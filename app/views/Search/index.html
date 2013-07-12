@@ -25,8 +25,7 @@ color = "orange";
                 <tbody>
                 <tr>
                     <td align="left" width="50px" >
-                        <img alt=''
-                             src='http://1.gravatar.com/avatar/9c3395243b0d29deb905352827d745e1?s=68&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D68&amp;r=G'  height='33' width='33' />
+					<img width="50" height="50" src="${post.user.getPhotoPath()}" />
                     </td>
                     <td class="post_list_entry_head ${color}-text">
                         #{if post.user} <a href="@{Users.viewUserProfile(post.user.id)}" class="post_list_entry_head ${color}-text">${post.user.firstName} ${post.user.lastName}</a>

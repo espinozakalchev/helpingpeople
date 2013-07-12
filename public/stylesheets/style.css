@@ -75,6 +75,11 @@
  	max-width: 215px;
   } 
  
+ .post_entry_image {
+ 	max-width: 410px;
+ 	max-height: 600px;
+ }
+ 
  .post_image {
  	max-height: 500px;
  	max-width: 400px;
